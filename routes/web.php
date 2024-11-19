@@ -14,13 +14,17 @@ use App\Http\Controllers\AuthController;
 |
 */
 
+   Route::get('/', function () {
+        return view('welcome');
+   });
+
 
     Route::controller(AuthController::class)->group(function () {
         Route::get('register', 'register')->name('register');
         Route::post('register', 'registerSimpan')->name('register.simpan');
-        Route::get('', 'login')->name('login');
+        Route::get('login', 'login')->name('login');
         Route::post('login', 'loginAksi')->name('login.aksi');
         Route::get('logout', 'logout')->middleware('auth')->name('logout');
 
-        
+
     });
